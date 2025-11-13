@@ -1,0 +1,25 @@
+package com.javahut.menu;
+
+public enum RegularTopping {
+    SPRINKLES("Sprinkles"),
+    GLAZED("Glazed"),
+    POWDERED_SUGAR("Powdered Sugar"),
+    CINNAMON_SUGAR("Cinnamon Sugar"),
+    FROSTING_CHOCOLATE("Chocolate Frosting"),
+    FROSTING_VANILLA("Vanilla Frosting");
+
+    private String label;
+
+    RegularTopping(String label) {
+        this.label = label;
+    }
+
+    public String label(){
+        return label;
+    }
+
+    @Override
+    public String toString(){
+        return label;
+    }
+}

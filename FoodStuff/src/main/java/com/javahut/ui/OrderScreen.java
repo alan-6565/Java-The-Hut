@@ -3,7 +3,7 @@ package com.javahut.ui;
 import java.util.Scanner;
 
 public class OrderScreen {
-
+// this code would be the order screen where ll my orders will go through
     public void run(Scanner sc){
         boolean running = true;
 
@@ -35,6 +35,7 @@ public class OrderScreen {
                     break;
                 case 0:
                     System.out.println("byebye");
+                    running = false;
                     break;
                 default:
                     break;

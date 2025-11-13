@@ -1,7 +1,7 @@
 package com.javahut.ui;
 
 import java.util.Scanner;
-
+// this code is the home screen
 public class HomeScreen {
     Scanner sc = new Scanner(System.in);
     public void run(){
