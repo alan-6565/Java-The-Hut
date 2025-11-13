@@ -1,13 +1,13 @@
 package com.javahut.menu;
 
-public enum Size {
-    MINI_BITE("Mini Bite"),
-    CLASSIC("Classic"),
-    JUMBO("Jumbo");
+public enum DrinkCategory {
+    COFFEE("Coffee"),
+    SMOOTHIE("Smoothie"),
+    WATER("Water");
 
     private final String label;
 
-    Size(String label) {
+    DrinkCategory(String label) {
         this.label = label;
     }
 
@@ -16,7 +16,7 @@ public enum Size {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return label;
     }
 }

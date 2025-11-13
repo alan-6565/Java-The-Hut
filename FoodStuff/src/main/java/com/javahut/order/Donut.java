@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 // this is where all donuts are created
 public class Donut implements LineItem{
-    private Size size;
+    private DonutSize size;
     private DonutType type;
     private SpecialOption special;
     private List<RegularTopping> regularToppings = new ArrayList<>();
     private List<PremiumTopping> premiumToppings = new ArrayList<>();// these arraylists connect to the enums and get stored there
 
-    public Donut(Size size, DonutType type, SpecialOption special) {
+    public Donut(DonutSize size, DonutType type, SpecialOption special) {
         this.size = size;
         this.type = type;
         this.special = special;
