@@ -31,8 +31,7 @@ public class Drink implements LineItem{
 
     @Override
     public String describe() {
-        String format = String.format("%.2f", price());
 
-        return size + " " + type + " - $" + format;
+        return size + " " + type + " - $" + String.format("%.2f", price());
     }
 }

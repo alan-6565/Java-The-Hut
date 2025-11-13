@@ -1,4 +1,5 @@
 package com.javahut.menu;
+//these enums were created for a quicker call out when i call an order
 
 public enum DonutType {
     YEAST("Yeast"),
