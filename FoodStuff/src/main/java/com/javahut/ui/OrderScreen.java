@@ -1,10 +1,16 @@
 package com.javahut.ui;
 
+import com.javahut.menu.*;
+import com.javahut.order.Donut;
+import com.javahut.order.Drink;
+import com.javahut.order.Order;
+import com.javahut.order.Side;
+
 import java.util.Scanner;
 
 public class OrderScreen {
 // this code would be the order screen where ll my orders will go through
-    public void run(Scanner sc){
+    public void run(Scanner sc, Order order){
         boolean running = true;
 
         while (running) {
@@ -22,23 +28,33 @@ public class OrderScreen {
 
             switch (input) {
                 case 1:
-                    System.out.println("Donut Added");
+                    Donut d = new Donut(DonutSize.CLASSIC, DonutType.YEAST, SpecialOption.NONE);
+                    d.addRegularToppings(RegularTopping.SPRINKLES);
+                    order.add(d);
+                    System.out.println("Donut added. Items: " + order.items().size() + " | TOTAL: $" + String.format("%.2f", order.total()));
                     break;
                 case 2:
-                    System.out.println("Drink Added");
+                    Drink drink = new Drink(DrinkType.LATTE, DrinkSize.SMALL);
+                    order.add(drink);
+                    System.out.println("Drink added. Items: " + order.items().size() + " | Total: $" + String.format("%.2f", order.total()));
                     break;
                 case 3:
-                    System.out.println("Side Added");
+                    Side side = new Side("Fruit Cup", 1.50);
+                    order.add(side);
+                    System.out.println("Side added, Items: " + order.items().size() + " | Total: $" + String.format("%.2f", order.total()));
                     break;
                 case 4:
-                    System.out.println("Checkout Added");
+                    System.out.println();
+                    System.out.println(order.renderReciept());
+                    order.saveReciept();
+                    running = false;
                     break;
                 case 0:
-                    System.out.println("byebye");
+                    System.out.println("Order canceled.");
                     running = false;
                     break;
                 default:
-                    break;
+                    System.out.println("Invalid Option.");
             }
         }
     }

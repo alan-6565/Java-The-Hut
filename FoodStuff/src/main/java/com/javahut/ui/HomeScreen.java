@@ -1,5 +1,7 @@
 package com.javahut.ui;
 
+import com.javahut.order.Order;
+
 import java.util.Scanner;
 // this code is the home screen
 public class HomeScreen {
@@ -18,15 +20,17 @@ public class HomeScreen {
 
             switch (input) {
                 case 1:
-                    new OrderScreen().run(sc);
+                    Order order = new Order(); // creates a fresh new cart
+                    new OrderScreen().run(sc, order); // im running the new cart into the orderscreen
                     break;
                 case 0:
                     running = false;
                     break;
                 default:
-                    break;
+                    System.out.println("Not valid option");
             }
         }
+        System.out.println("bye bye");
 
     }
 }
