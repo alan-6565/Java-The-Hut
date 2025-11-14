@@ -68,4 +68,10 @@ public class Order {
             System.out.println("COULD NOT SAVE RECEIPT" + e.getMessage());
         }
     }
+
+    public boolean isValidPerRule() {
+        boolean hasDonut = items().stream().anyMatch(li -> li instanceof Donut);
+        boolean hasDrinkOrSide = items().stream().anyMatch(li -> (li instanceof Drink) || (li instanceof Side));
+        return hasDonut || hasDrinkOrSide; // if no donuts, must have drink/side
+    }
 }

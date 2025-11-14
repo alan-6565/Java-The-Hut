@@ -14,14 +14,21 @@ public class OrderScreen {
         boolean running = true;
 
         while (running) {
-            System.out.println("==============");
-            System.out.println("1) Add Donut");
-            System.out.println("2) Add Drink");
-            System.out.println("3) Add Side");
-            System.out.println("4) Checkout");
-            System.out.println("0) Exit");
-            System.out.println("==============");
-            System.out.println(">");
+            System.out.println("╔═══════════════════════════════════════════════════════╗");
+            System.out.println("║             ☕  JAVA THE HUT — ORDER PAD  🍩           ║");
+            System.out.println("║               your donuts, drinks & sides             ║");
+            System.out.println("╠═══════════════════════════════════════════════════════╣");
+            System.out.printf ("║  Items in cart: %-3d   Current total: $%7.2f         ║%n",
+                    order.items().size(), order.total());
+            System.out.println("╚═══════════════════════════════════════════════════════╝");
+            System.out.println();
+            System.out.println("   1) Add Donut");
+            System.out.println("   2) Add Drink");
+            System.out.println("   3) Add Side");
+            System.out.println("   4) Checkout");
+            System.out.println("   0) Cancel Order");
+            System.out.println();
+            System.out.print ("   Choose an option ➤ ");
 
             int input = sc.nextInt();
             sc.nextLine();
@@ -132,9 +139,21 @@ public class OrderScreen {
                     System.out.println("Added " + name + " | Total: $" + String.format("%.2f", order.total()));
                     break;
                 case 4:
+                    if (!order.isValidPerRule()) {
+                        System.out.println("If you have 0 donuts, you must purchase a drink or a side.");
+                        break; // return to menu
+                    }
+
                     System.out.println();
-                    System.out.println(order.renderReciept());
+                    printReceiptBanner(order);                // 🔹 new fancy header
+                    System.out.println(order.renderReciept()); // keep your current method name
                     order.saveReciept();
+                    System.out.println();
+                    System.out.println("Receipt saved Enjoy");
+                    System.out.println();
+
+                    System.out.println("   (Press Enter to return to Home Screen)");
+                    sc.nextLine();
                     running = false;
                     break;
                 case 0:
@@ -160,5 +179,16 @@ public class OrderScreen {
             return values[0];
         }
         return values[choice - 1];
+    }
+
+    private void printReceiptBanner(Order order) {
+        System.out.println("╔═══════════════════════════════════════════════════════╗");
+        System.out.println("║                  🧾  ORDER SUMMARY  🧾                ║");
+        System.out.println("║            Thank you for visiting Java the Hut        ║");
+        System.out.println("╠═══════════════════════════════════════════════════════╣");
+        System.out.printf ("║  Final items: %-3d   Total due: $%7.2f              ║%n",
+                order.items().size(), order.total());
+        System.out.println("╚═══════════════════════════════════════════════════════╝");
+        System.out.println();
     }
 }

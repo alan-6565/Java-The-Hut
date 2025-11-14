@@ -15,7 +15,6 @@ public class Drink implements LineItem{
 
     @Override
     public double price() {
-        double base;
         double base = PricingTable.drinkBase(type);
         return base + PricingTable.drinkSize(size);
     }

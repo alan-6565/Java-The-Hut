@@ -10,11 +10,27 @@ public class HomeScreen {
         boolean running = true;
 
         while (running) {
-            System.out.println("==============");
-            System.out.println("1) New Order");
-            System.out.println("0) Exit");
-            System.out.println("==============");
-            System.out.println(">");
+            try {
+                String loading = "Loading into Java the Hut";
+                for (char c : loading.toCharArray()) {
+                    System.out.print(c);
+                    Thread.sleep(50);
+                }
+                System.out.println("... ☕ Done!");
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            System.out.println("╔═══════════════════════════════════════════════════════╗");
+            System.out.println("║                 ☕  JAVA THE HUT  🍩                   ║");
+            System.out.println("║        Where Coffee Meets Code — and Donuts Win.      ║");
+            System.out.println("╚═══════════════════════════════════════════════════════╝");
+            System.out.println("              [ Welcome to the Order System ]            ");
+            System.out.println();
+            System.out.println("               1) Start a New Order");
+            System.out.println("               0) Exit the Program");
+            System.out.println();
+            System.out.print("                Select an option ➤ ");
             int input = sc.nextInt();
             sc.nextLine();
 
