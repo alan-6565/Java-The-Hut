@@ -5,7 +5,8 @@ public enum PremiumTopping {
     FRESH_FRUITS("Fresh Fruits"),
     COOKIE_CRUMBLE("Cookie Crumble"),
     WHIPPED_CREAM("Whipped Cream"),
-    ICE_CREAM_SCOOP("Ice Cream Scoop");
+    ICE_CREAM_SCOOP("Ice Cream Scoop"),
+    SMORES("S'mores");
 
     private final String label;
 
