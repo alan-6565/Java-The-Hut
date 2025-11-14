@@ -1,0 +1,8 @@
+Java the Hut
+Date: 2025-11-14 09:23:01
+============================================
+Fruit Cup                                $  1.50
+Large Mocha                              $  3.00
+1 Donut Cake Donut (NONE frosting) with [Sprinkles] and [Ice Cream Scoop] (Cream Filling) $  4.85
+============================================
+TOTAL: $9.35

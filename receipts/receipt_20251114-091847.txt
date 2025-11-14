@@ -1,0 +1,8 @@
+Java the Hut
+Date: 2025-11-14 09:18:47
+============================================
+Chips                                    $  1.25
+Small Latte                              $  2.00
+1 Donut Yeast Donut (PINK frosting) with [Sprinkles] and [Cookie Crumble] (Cream Filling) $  4.85
+============================================
+TOTAL: $8.10

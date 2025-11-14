@@ -20,7 +20,7 @@ public final class PricingTable {
     public static double donutSpecial(SpecialOption special) {
         return switch (special) {
             case NONE -> 0.0;
-            case FILLING_CREAM, FILLING_JELLY -> 0.35;
+            case FILLING_CREAM, FILLING_JELLY -> 0.50;
         };
     }
 

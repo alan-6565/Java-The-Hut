@@ -9,6 +9,7 @@ public class Donut implements LineItem{
     private DonutSize size;
     private DonutType type;
     private SpecialOption special;
+    private Frosting frosting = Frosting.NONE;
     private List<RegularTopping> regularToppings = new ArrayList<>();
     private List<PremiumTopping> premiumToppings = new ArrayList<>();// these arraylists connect to the enums and get stored there
 
@@ -16,6 +17,10 @@ public class Donut implements LineItem{
         this.size = size;
         this.type = type;
         this.special = special;
+    }
+
+    public void setFrosting(Frosting frosting) {
+        this.frosting = frosting;
     }
 
     public void addRegularToppings(RegularTopping topping){
@@ -45,6 +50,6 @@ public class Donut implements LineItem{
 //        } else {
 //            regTops = regularToppings.toString();
 //        }
-        return size + " " + type + " Donut with " + regTops + " and " + premTops + " (" + special + ")";
+        return size + " " + type + " Donut (" + frosting + " frosting) with "  + regTops + " and " + premTops + " (" + special + ")";
     }
 }

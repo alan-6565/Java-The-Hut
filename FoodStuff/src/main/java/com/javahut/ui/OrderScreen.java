@@ -35,16 +35,52 @@ public class OrderScreen {
 
             switch (input) {
                 case 1:
-                    System.out.println("Choose a Donut size:");
-                    DonutSize size = promptEnum(sc, DonutSize.class);//these call in the enum prompt connected to specific enums this one such ass the donut size
+                    System.out.println("Enter donut size (1 Donut, Half a Dozen, Dozen):");
+                    String sizeInput = sc.nextLine().trim().toLowerCase();
+                    DonutSize size;
+                    if (sizeInput.contains("1")) size = DonutSize.MINI_BITE;
+                    else if (sizeInput.contains("half")) size = DonutSize.CLASSIC;
+                    else if (sizeInput.contains("dozen")) size = DonutSize.JUMBO;
+                    else {
+                        System.out.println("Unknown size, defaulting to Classic.");
+                        size = DonutSize.CLASSIC;
+                    }
 
-                    System.out.println("Choose a Donut Type:");
-                    DonutType type = promptEnum(sc, DonutType.class);
+                    System.out.println("Enter donut type (yeast, cake, mochi):");
+                    String typeInput = sc.nextLine().trim().toLowerCase();
+                    DonutType type;
+                    if (typeInput.contains("yeast")) type = DonutType.YEAST;
+                    else if (typeInput.contains("cake")) type = DonutType.CAKE;
+                    else if (typeInput.contains("mochi")) type = DonutType.MOCHI;
+                    else {
+                        System.out.println("Unknown type, defaulting to Yeast.");
+                        type = DonutType.YEAST;
+                    }
 
-                    System.out.println("Would You like Filling");
-                    SpecialOption special = promptEnum(sc, SpecialOption.class);
-
+                    System.out.println("Choose filling (cream, jelly, none):");
+                    String fillInput = sc.nextLine().trim().toLowerCase();
+                    SpecialOption special;
+                    if (fillInput.contains("cream")) special = SpecialOption.FILLING_CREAM;
+                    else if (fillInput.contains("jelly")) special = SpecialOption.FILLING_JELLY;
+                    else if (fillInput.contains("none")) special = SpecialOption.NONE;
+                    else {
+                        System.out.println("Unknown filling, defaulting to NONE.");
+                        special = SpecialOption.NONE;
+                    }
                     Donut d = new Donut(size, type, special);
+
+                    System.out.println("Choose frosting (chocolate, vanilla, pink, none):");
+                    String frostInput = sc.nextLine().trim().toLowerCase();
+                    Frosting frosting;
+                    if (frostInput.contains("choco")) frosting = Frosting.CHOCOLATE;
+                    else if (frostInput.contains("vanilla")) frosting = Frosting.VANILLA;
+                    else if (frostInput.contains("pink") || frostInput.contains("straw")) frosting = Frosting.PINK;
+                    else if (frostInput.contains("none")) frosting = Frosting.NONE;
+                    else {
+                        System.out.println("Unknown frosting, defaulting to NONE.");
+                        frosting = Frosting.NONE;
+                    }
+
 
                     System.out.println("Choose your toppings use (space with commas): [Sprinkles, Glazed, Powdered Sugar, Cinnamon Sugar, Chocolate Frosting, Vanilla Frosting");
                     String answer = sc.nextLine().trim().toLowerCase();
@@ -102,7 +138,7 @@ public class OrderScreen {
                     else type1 = DrinkType.WATER; // default
 
                     System.out.println("Enter size (small, medium, large: ");
-                    String sizeInput = sc.nextLine().trim().toLowerCase();
+                    sizeInput = sc.nextLine().trim().toLowerCase();
 
                     if (sizeInput.startsWith("s")) size1 = DrinkSize.SMALL;
                     else if (sizeInput.startsWith("m")) size1 = DrinkSize.MEDIUM;
@@ -125,13 +161,13 @@ public class OrderScreen {
 
                     if (sideInput.contains("fruit")){
                         name = "Fruit Cup";
-                        price = 1.50;
+                        price = 3.50;
                     } else if (sideInput.contains("chips")) {
                         name = "Chips";
-                        price = 1.25;
+                        price = 2.25;
                     } else if (sideInput.contains("donut")) {
                         name = "Donut Holes";
-                        price = 2.00;// here i manually typed in lots of the prices since there are very few
+                        price = 4.00;// here i manually typed in lots of the prices since there are very few
                     }
 
                     Side side = new Side(name, price);
