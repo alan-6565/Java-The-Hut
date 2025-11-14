@@ -36,7 +36,7 @@ public class OrderScreen {
             switch (input) {
                 case 1:
                     System.out.println("Choose a Donut size:");
-                    DonutSize size = promptEnum(sc, DonutSize.class);
+                    DonutSize size = promptEnum(sc, DonutSize.class);//these call in the enum prompt connected to specific enums this one such ass the donut size
 
                     System.out.println("Choose a Donut Type:");
                     DonutType type = promptEnum(sc, DonutType.class);
@@ -59,7 +59,7 @@ public class OrderScreen {
                         else if (t.contains("powder")) d.addRegularToppings(RegularTopping.POWDERED_SUGAR);
                         else if (t.contains("cinnamon")) d.addRegularToppings(RegularTopping.CINNAMON_SUGAR);
                         else if (t.contains("choco") && t.contains("frost")) d.addRegularToppings(RegularTopping.FROSTING_CHOCOLATE);
-                        else if (t.contains("vanilla") && t.contains("frost")) d.addRegularToppings(RegularTopping.FROSTING_VANILLA);
+                        else if (t.contains("vanilla") && t.contains("frost")) d.addRegularToppings(RegularTopping.FROSTING_VANILLA);// this code allows me to type in the specific item id like
 
 
                     }
@@ -131,7 +131,7 @@ public class OrderScreen {
                         price = 1.25;
                     } else if (sideInput.contains("donut")) {
                         name = "Donut Holes";
-                        price = 2.00;
+                        price = 2.00;// here i manually typed in lots of the prices since there are very few
                     }
 
                     Side side = new Side(name, price);
@@ -145,8 +145,8 @@ public class OrderScreen {
                     }
 
                     System.out.println();
-                    printReceiptBanner(order);                // 🔹 new fancy header
-                    System.out.println(order.renderReciept()); // keep your current method name
+                    printReceiptBanner(order);             //here im calling in the big reciept prompt i have in the bottom of the code
+                    System.out.println(order.renderReciept());
                     order.saveReciept();
                     System.out.println();
                     System.out.println("Receipt saved Enjoy");
@@ -175,7 +175,7 @@ public class OrderScreen {
         int choice = sc.nextInt();
         sc.nextLine();
         if (choice < 1 || choice > values.length) {
-            System.out.println("Invalid choice, defaulting to first option.");
+            System.out.println("Invalid choice, defaulting to first option.");// this is the prompts i call into each case
             return values[0];
         }
         return values[choice - 1];

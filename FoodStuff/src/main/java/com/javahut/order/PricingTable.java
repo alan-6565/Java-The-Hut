@@ -11,9 +11,9 @@ public final class PricingTable {
     //Donut pricing
     public static double donutBase(DonutSize size) {
         return switch (size) {
-            case MINI_BITE -> 1.25;
-            case CLASSIC -> 2.25;
-            case JUMBO -> 3.35;
+            case MINI_BITE -> 3.50;
+            case CLASSIC -> 10.25;
+            case JUMBO -> 20.35;
         };
     }
 

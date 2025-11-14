@@ -19,7 +19,7 @@ public class HomeScreen {
                 System.out.println("... ☕ Done!");
                 Thread.sleep(300);
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+                Thread.currentThread().interrupt();// creates a loading screen
             }
             System.out.println("╔═══════════════════════════════════════════════════════╗");
             System.out.println("║                 ☕  JAVA THE HUT  🍩                   ║");
