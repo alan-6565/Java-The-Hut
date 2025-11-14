@@ -33,7 +33,6 @@ public class Donut implements LineItem{
 
     @Override
     public String describe() {
-        String format = String.format("%.2f", price());
         String regTops = regularToppings.isEmpty() ? "no regular toppings" : regularToppings.toString();
         String premTops = premiumToppings.isEmpty() ? "no premium toppings" : premiumToppings.toString();// these are if else statement shorter version of the ones under
 //        String regTops;
@@ -42,6 +41,6 @@ public class Donut implements LineItem{
 //        } else {
 //            regTops = regularToppings.toString();
 //        }
-        return size + " " + type + " Donut with " + regTops + " and " + premTops + " (" + special + ") - $" + format;
+        return size + " " + type + " Donut with " + regTops + " and " + premTops + " (" + special + ")";
     }
 }

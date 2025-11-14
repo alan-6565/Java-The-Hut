@@ -78,14 +78,56 @@ public class OrderScreen {
                             + " | Total: $" + String.format("%.2f", order.total()));
                     break;
                 case 2:
-                    Drink drink = new Drink(DrinkType.LATTE, DrinkSize.SMALL);
+                    System.out.println("Enter drink name (e.g., latte, espresso, cappuccino, mocha, smoothie, water):");
+                    String drinkInput = sc.nextLine().trim().toLowerCase();
+
+                    DrinkType type1;
+                    DrinkSize size1;
+
+                    if (drinkInput.contains("latte")) type1 = DrinkType.LATTE;
+                    else if (drinkInput.contains("espresso")) type1 = DrinkType.ESPRESSO;
+                    else if (drinkInput.contains("macchiato")) type1 = DrinkType.MACCHIATO;
+                    else if (drinkInput.contains("cappuccino")) type1 = DrinkType.CAPPUCCINO;
+                    else if (drinkInput.contains("mocha")) type1 = DrinkType.MOCHA;
+                    else if (drinkInput.contains("smoothie") && drinkInput.contains("straw")) type1 = DrinkType.STRAWBERRY_SMOOTHIE;
+                    else if (drinkInput.contains("smoothie") && drinkInput.contains("banana")) type1 = DrinkType.BANANA_SMOOTHIE;
+                    else if (drinkInput.contains("smoothie") && drinkInput.contains("mix")) type1 = DrinkType.MIX_SMOOTHIE;
+                    else type1 = DrinkType.WATER; // default
+
+                    System.out.println("Enter size (small, medium, large: ");
+                    String sizeInput = sc.nextLine().trim().toLowerCase();
+
+                    if (sizeInput.startsWith("s")) size1 = DrinkSize.SMALL;
+                    else if (sizeInput.startsWith("m")) size1 = DrinkSize.MEDIUM;
+                    else if (sizeInput.startsWith("l")) size1 = DrinkSize.LARGE;
+                    else {
+                        System.out.println("Unknown size, defaulting to medium.");
+                        size1 = DrinkSize.MEDIUM;
+                    }
+
+                    Drink drink = new Drink(type1, size1);
                     order.add(drink);
-                    System.out.println("Drink added. Items: " + order.items().size() + " | Total: $" + String.format("%.2f", order.total()));
+                    System.out.println("Added " + size1 + " " + type1 + " | Total: $" + String.format("%.2f", order.total()));
                     break;
                 case 3:
-                    Side side = new Side("Fruit Cup", 1.50);
-                    order.add(side);
-                    System.out.println("Side added, Items: " + order.items().size() + " | Total: $" + String.format("%.2f", order.total()));
+                    System.out.println("Enter side name (e.g., fruit cup, chips, donut holes):");
+                    String sideInput = sc.nextLine().trim().toLowerCase();
+
+                    String name = "";
+                    double price = 0.00;
+
+                    if (sideInput.contains("fruit")){
+                        name = "Fruit Cup";
+                        price = 1.50;
+                    } else if (sideInput.contains("chips")) {
+                        name = "Chips";
+                        price = 1.25;
+                    } else if (sideInput.contains("donut")) {
+                        name = "Donut Holes";
+                        price = 2.00;
+                    }
+
+                    Side side = new Side(name, price);
                     break;
                 case 4:
                     System.out.println();

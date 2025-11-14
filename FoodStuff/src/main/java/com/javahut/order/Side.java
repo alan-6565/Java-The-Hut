@@ -17,6 +17,6 @@ public class Side implements LineItem{
 
     @Override
     public String describe() {
-        return name + " $" + String.format("%.2f", price());
+        return name;
     }
 }
