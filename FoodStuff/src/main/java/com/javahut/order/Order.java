@@ -20,7 +20,7 @@ public class Order {
         return Collections.unmodifiableList(items);
     }
 
-    public Double total() {
+    public double total() {
         double sum = 0.0;
         for (LineItem lineItem : items) {
             sum += lineItem.price();

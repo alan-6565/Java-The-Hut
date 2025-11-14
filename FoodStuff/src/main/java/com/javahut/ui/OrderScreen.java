@@ -60,7 +60,7 @@ public class OrderScreen {
                     System.out.println("Choose some special toppings (use space with commas): [Fresh Fruits, Cookie Crumble, Whipped Cream, Ice Cream Scoop]");
                     String answer2 = sc.nextLine().trim().toLowerCase();
 
-                    String[] tokens1 = answer.split(",");
+                    String[] tokens1 = answer2.split(",");
                     for (String token2 : tokens1) {
                         String t = token2.trim();
                         if (t.isEmpty()) continue;
@@ -128,6 +128,8 @@ public class OrderScreen {
                     }
 
                     Side side = new Side(name, price);
+                    order.add(side);
+                    System.out.println("Added " + name + " | Total: $" + String.format("%.2f", order.total()));
                     break;
                 case 4:
                     System.out.println();

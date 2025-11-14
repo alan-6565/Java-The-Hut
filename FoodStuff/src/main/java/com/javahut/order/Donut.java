@@ -28,7 +28,11 @@ public class Donut implements LineItem{
 
     @Override// these overrides connect to Line Item
     public double price() {
-        return 2.0 + regularToppings.size() * 0.4 + premiumToppings.size() * 0.75;
+        double base = PricingTable.donutBase(size);
+        double spec = PricingTable.donutSpecial(special);
+        double perTopping = PricingTable.toppingPrice(size);
+        double toppingsCost = (regularToppings.size() + premiumToppings.size()) * perTopping;
+        return base + spec + toppingsCost;
     }
 
     @Override

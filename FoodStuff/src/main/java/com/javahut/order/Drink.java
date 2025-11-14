@@ -1,5 +1,5 @@
 package com.javahut.order;
-
+import com.javahut.menu.*;
 import com.javahut.menu.DrinkCategory;
 import com.javahut.menu.DrinkSize;
 import com.javahut.menu.DrinkType;
@@ -16,17 +16,8 @@ public class Drink implements LineItem{
     @Override
     public double price() {
         double base;
-        switch (type.category()) {
-            case COFFEE -> base = 2.0;
-            case SMOOTHIE -> base = 3.0;
-            default -> base = 1.0;
-        }
-
-        return switch (size) {
-            case SMALL -> base;
-            case MEDIUM -> base + 0.50;
-            case LARGE -> base + 1.00;
-        };
+        double base = PricingTable.drinkBase(type);
+        return base + PricingTable.drinkSize(size);
     }
 
     @Override
