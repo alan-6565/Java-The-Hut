@@ -1,0 +1,8 @@
+Java the Hut
+Date: 2025-11-13 23:39:39
+============================================
+Chips                                    $  1.25
+Medium Latte                             $  2.50
+Classic Mochi Donut with [Sprinkles, Chocolate Frosting] and [Ice Cream Scoop] (Cream Filling) $  5.60
+============================================
+TOTAL: $9.35
