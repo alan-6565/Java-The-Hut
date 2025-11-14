@@ -7,8 +7,7 @@ public enum RegularTopping {
     POWDERED_SUGAR("Powdered Sugar"),
     CINNAMON_SUGAR("Cinnamon Sugar"),
     FROSTING_CHOCOLATE("Chocolate Frosting"),
-    FROSTING_VANILLA("Vanilla Frosting"),
-    NUTS("Nuts");
+    FROSTING_VANILLA("Vanilla Frosting");
 
     private String label;
 
